@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="../css/shoes.css">
+    <link rel="stylesheet" href="../css/contents.css">
+    <script type="text/javascript" src="../js/Carousel.js"></script>
+    <style>
+     .card {
+     /*background-color: white; */
+     padding: 20px;
+     margin: 20px 10px;
+     border-style: solid;
+     border-width: 5px;
+     border-radius: 15px;
+     text-align: center;
+}
+     .card img{
+          height:200px ;
+          width: 200px;
+     }
+    </style>
+</head>
+<body>
+     <header>
+          <div class="menu-container">
+              <ul class="drop-down-menu">
+                  <li>
+                      <img src="../photo/004.png" class="menu-icon" alt="品牌選單">
+                      <ul>
+                          <li><a href="#">各樣品牌</a>
+                              <ul>
+                                  <li><a href="adidas.html" target="_self">Adidas</a></li>
+                                  <li><a href="nike.html">Nike</a></li>
+                                  <li><a href="newbalance.html">New Balance</a></li>
+                                  <li><a href="converse.html">Converse</a></li>
+                                  <li><a href="puma.html">Puma</a></li>
+                                  <li><a href="fila.html">Fila</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="sneaker.html">運動鞋(18)</a></li>
+                          <li><a href="leisure.html">休閒鞋(18)</a></li>
+                          <li><a href="slipper.html">其他(18)</a></li>
+                          <li><a href="recommend.html">店長推薦款</a></li>
+                          <li><a href="login.html">會員登入</a></li>
+                          <li><a href="cart.html">我的購物車</a></li>
+                          <li><a href="contactus.html">聯絡我們</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>         
+          
+          <a href="index.html"><img src="../photo/slogan.png" class="logo" alt="Shoe Store Logo"></a>
+          
+          <nav>
+              <ul>
+                  <li class="member-menu">
+                      <img src="../photo/002.png" class="img" alt="會員">
+                      <ul>
+                          <li><a href="#">會員登入</a></li>
+                          <li><a href="#">還不是會員？</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="cart.html"><img src="../photo/001.png" class="img" alt="Icon 2"></a></li>
+                  <li><a href="contactus.html"><img src="../photo/003.png" class="img" alt="Icon 3"></a></li>
+              </ul>
+          </nav>
+      </header>
+      <div class="container">
+          <div class="slide fade">
+               <img src="../puma/puma_ad01.png" alt="Adidas">
+          </div>
+          <div class="slide fade">
+               <img src="../puma/puma_ad02.png" alt="Converse">
+          </div>
+          <div class="slide fade">
+               <img src="../puma/puma_ad03.png" alt="Fila">
+          </div>
+          <div class="slide fade">
+               <img src="../puma/puma_ad04.png" alt="New Balance">
+          </div>
+          <div class="slide fade">
+               <img src="../puma/puma_ad05.png" alt="Nike">
+          </div>
+          <div class="slide fade">
+               <img src="../puma/puma_ad06.png" alt="Puma">
+          </div>
+          <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+          <a class="next" onclick="changeSlide(1)">&#10095;</a>
+     </div>
+     <div style="text-align: center;">
+          <span class="dot" onclick="showSlides(1)"></span>
+          <span class="dot" onclick="showSlides(2)"></span>
+          <span class="dot" onclick="showSlides(3)"></span>
+          <span class="dot" onclick="showSlides(4)"></span>
+          <span class="dot" onclick="showSlides(5)"></span>
+          <span class="dot" onclick="showSlides(6)"></span>
+     </div>
+     <div style="font-size: 80px;text-align: center; text-align:center; font-family:Permanent; font-weight: bold;">PUMA</div>
+     <main>
+          <div class="ha" style="font-family: Shadows,標楷體;">
+               <section class="card">
+                    <a href="puma01.html"><img src="../puma/pumaSneaker01_1.png" /></a>
+                    <h2>Softride Sway</h2>
+                    <br>
+                    <p>$1,990</p>
+               </section>
+               <section class="card">
+                    <img src="../puma/pumaSneaker02_1.jpg" />
+                    <h2>Rise NITRO™ Nephrite</h2>
+                    <br>
+                    <p>$1,712</p>
+               </section>
+               <section class="card">
+                    <img src="../puma/pumaSneaker03_1.png" />
+                    <h2>Varion II</h2>
+                    <br>
+                    <p>$2,380</p>
+               </section>
+               <section class="card">
+                    <img src="../puma/pumaLeisure01_1.jpg" />
+                    <h2>Trinity Lite</h2>
+                    <br>
+                    <p>$2,280</p>
+               </section>
+               <section class="card">
+                    <img src="../puma/pumaLeisure02_1.jpg" />
+                    <h2>Blktop Rider Preppy</h2>
+                    <br>
+                    <p>$3,480</p>
+               </section>
+               <section class="card">
+                    <img src="../puma//pumaLeisure03_1.jpg" />
+                    <h2>Suede PLAYSTATION</h2>
+                    <br>
+                    <p>$4,180</p>
+               </section>
+               <section class="card">
+                    <img src="../puma/pumaSlipper01_1.jpg" />
+                    <h2>Wave Mule</h2>
+                    <br>
+                    <p>$1,880</p>
+               </section>
+               <section class="card">
+                    <img src="../puma/pumaSlipper02_1.jpg" />
+                    <h2>Velo Sandal</h2>
+                    <br>
+                    <p>$3,280</p>
+               </section>
+               <section class="card">
+                    <img src="../puma/pumaSlipper03_4.jpg" />
+                    <h2>Wave Flip</h2>
+                    <br>
+                    <p>$690</p>
+               </section>
+          </div>
+
+     </main>
+     <footer>
+          <h2 style="padding-top: 20px; font-family: Shadows;">copyright@ 2024 All rights reserved</h2>
+      </footer>
+</body>
+</html>

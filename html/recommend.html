@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <link rel="stylesheet" href="../css/recommend.css">
+     <link rel="stylesheet" href="../css/contents.css">
+     <script type="text/javascript" src="../js/Carousel.js"></script>
+     <script type="text/javascript" src="../js/recommend.js"></script>
+     <style>
+     .card {
+          background-color: white;
+          padding: 20px;
+          margin: 10px;
+          border: 2px solid #000;
+          border-radius: 15px;
+          text-align: center;
+          position: relative;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     }
+     .card img {
+          height:200px ;
+          width: 200px;
+     }
+     .card h2 {
+          margin-top: 10px;
+          font-size: 1.2em;
+          font-family: 'Shadows', '標楷體';
+     }
+     .card p {
+          margin-top: 5px;
+          font-size: 1em;
+          color: #333;
+     }
+     .animation {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          transition: opacity 0.5s;
+          pointer-events: none; /* 确保动画不拦截鼠标事件 */
+}
+     .card.adidas:hover .animation,
+     .card.newbalance:hover .animation,
+     .card.nike:hover .animation,
+     .card.puma:hover .animation,
+     .card.fila:hover .animation,
+     .card.converse:hover .animation {
+          display: flex;
+          opacity: 1;
+     }
+     </style>
+</head>
+<body>
+     <header>
+          <div class="menu-container">
+              <ul class="drop-down-menu">
+                  <li>
+                      <img src="../photo/004.png" class="menu-icon" alt="品牌選單">
+                      <ul>
+                          <li><a href="#">各樣品牌</a>
+                              <ul>
+                                  <li><a href="adidas.html" target="_self">Adidas</a></li>
+                                  <li><a href="nike.html">Nike</a></li>
+                                  <li><a href="newbalance.html">New Balance</a></li>
+                                  <li><a href="converse.html">Converse</a></li>
+                                  <li><a href="puma.html">Puma</a></li>
+                                  <li><a href="fila.html">Fila</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="sneaker.html">運動鞋(18)</a></li>
+                          <li><a href="leisure.html">休閒鞋(18)</a></li>
+                          <li><a href="slipper.html">其他(18)</a></li>
+                          <li><a href="recommend.html">店長推薦款</a></li>
+                          <li><a href="login.html">會員登入</a></li>
+                          <li><a href="cart.html">我的購物車</a></li>
+                          <li><a href="contactus.html">聯絡我們</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>         
+          
+          <a href="index.html"><img src="../photo/slogan.png" class="logo" alt="Shoe Store Logo"></a>
+          
+          <nav>
+              <ul>
+                  <li class="member-menu">
+                      <img src="../photo/002.png" class="img" alt="會員">
+                      <ul>
+                          <li><a href="login.html">會員登入</a></li>
+                          <li><a href="register.html">還不是會員？</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="cart.html"><img src="../photo/001.png" class="img" alt="Icon 2"></a></li>
+                  <li><a href="contactus.html"><img src="../photo/003.png" class="img" alt="Icon 3"></a></li>
+              </ul>
+          </nav>
+      </header>
+     <div style="font-size: 80px;text-align: center; font-family:新細明體; font-weight: bold; margin-top: 100px;" text-align:center>店長推薦款</div>
+     <main>
+          <div class="ha" style="font-family: Shadows,標楷體;">
+               <section class="card adidas">    <!--adidas-->
+                    <a href="adidas01.html"><img src="../adidas/adidasSamba01_1.png" /></a>
+                    <h2>SAMBA X MESSI 運動休閒鞋</h2>
+                    <br>
+                    <p>$3,690</p>
+                    <div class="animation">Adidas</div>
+               </section>
+               <section class="card converse">  <!--converse-->
+                    <a href="converse01.html"><img src="../converse/converseHigh01_1.png" /></a>
+                    <h2>A Cold Wall x Chunk 70</h2>
+                    <br>
+                    <p>$3,390</p>
+                    <div class="animation">Converse</div>
+               </section>
+               <section class="card fila">    <!--fila-->
+                    <a href="fila01.html"><img src="../fila/filaSneaker01_1.png" /></a>
+                    <h2>綁帶運動鞋 1-J303Y-123</h2>
+                    <br>
+                    <p>$1,790</p>
+                    <div class="animation">Fila</div>
+               </section>
+               <section class="card newbalance">   <!--newbalance-->
+                    <a href="newbalance01.html"><img src="../newbalance/nbSneaker01_1..jpg" /></a>
+                    <h2>327</h2>
+                    <br>
+                    <p>$2,550</p>
+                    <div class="animation">New Balance</div>
+               </section>
+               <section class="card nike">   <!--nike-->
+                    <a href="nike01.html"><img src="../nike/nikeSneaker01-1.png" /></a>
+                    <h2>Giannis Immortality 3 EP</h2>
+                    <br>
+                    <p>$1,999</p>
+                    <div class="animation">Nike</div>
+               </section>
+               <section class="card puma">  <!--puma-->
+                    <a href="puma01.html"><img src="../puma/pumaSneaker01_1.png" /></a>
+                    <h2>Softride Sway</h2>
+                    <br>
+                    <p>$1,990</p>
+                    <div class="animation">Puma</div>
+               </section>
+          </div>
+     </main>
+     <footer>
+          <h2 style="padding-top: 20px; font-family: Shadows;">copyright@ 2024 All rights reserved</h2>
+      </footer>
+</body>
+</html>

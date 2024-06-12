@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/shoes.css">
+    <link rel="stylesheet" href="../css/contents.css">
+</head>
+<body>
+    <header>
+        <div class="menu-container">
+            <ul class="drop-down-menu">
+                <li>
+                    <img src="../photo/004.png" class="menu-icon" alt="品牌選單">
+                    <ul>
+                        <li><a href="#">各樣品牌</a>
+                            <ul>
+                                <li><a href="adidas.html" target="_self">Adidas</a></li>
+                                <li><a href="nike.html">Nike</a></li>
+                                <li><a href="newbalance.html">New Balance</a></li>
+                                <li><a href="converse.html">Converse</a></li>
+                                <li><a href="puma.html">Puma</a></li>
+                                <li><a href="fila.html">Fila</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="sneaker.html">運動鞋(18)</a></li>
+                        <li><a href="leisure.html">休閒鞋(18)</a></li>
+                        <li><a href="slipper.html">其他(18)</a></li>
+                        <li><a href="recommend.html">店長推薦款</a></li>
+                        <li><a href="login.html">會員登入</a></li>
+                        <li><a href="cart.html">我的購物車</a></li>
+                        <li><a href="contactus.html">聯絡我們</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>         
+        
+        <a href="index.html"><img src="../photo/slogan.png" class="logo" alt="Shoe Store Logo"></a>
+        
+        <nav>
+            <ul>
+                <li class="member-menu">
+                    <img src="../photo/002.png" class="img" alt="會員">
+                    <ul>
+                        <li><a href="login.html">會員登入</a></li>
+                        <li><a href="register.html">還不是會員？</a></li>
+                    </ul>
+                </li>
+                <li><a href="cart.html"><img src="../photo/001.png" class="img" alt="Icon 2"></a></li>
+                <li><a href="contactus.html"><img src="../photo/003.png" class="img" alt="Icon 3"></a></li>
+            </ul>
+        </nav>
+
+        <!-- 新增搜尋欄 -->
+        <div class="search-container">
+            <form action="/search" method="get">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/shoes.css">
+    <link rel="stylesheet" href="../css/contents.css">
+    <style>
+        body {
+            padding-top: 300px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .registration-container {
+            border: 3px solid #8E99a4;
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+        }
+        .registration-container h2 {
+            color: #8E99a4;
+        }
+        .registration-container label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .registration-container input[type="text"],
+        .registration-container input[type="email"],
+        .registration-container input[type="password"],
+        .registration-container input[type="date"],
+        .registration-container input[type="tel"],
+        .registration-container textarea{
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .registration-container .radio-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .registration-container button {
+            background-color: #8E99a4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .registration-container button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container" style="font-family: 標楷體;">
+        <h2>歡迎加入「鞋槓人生」</h2>
+        <p>穿上好鞋，穿搭和諧。</p>
+        <form action="/register" method="post">
+            <label for="firstname">姓</label>
+            <input type="text" id="firstname" name="firstname" required>
+
+            <label for="lastname">名</label>
+            <input type="text" id="lastname" name="lastname" required>
+
+            <label for="gender">性別</label>
+            <div class="radio-group">
+                <label><input type="radio" id="male" name="gender" value="male"> 男</label>
+                <label><input type="radio" id="female" name="gender" value="female"> 女</label>
+                <label><input type="radio" id="other" name="gender" value="other"> 其他</label>
+            </div>
+
+            <label for="birthday">生日</label>
+            <input type="date" id="birthday" name="birthday" required>
+
+            <label for="phone">手機號碼</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">電子郵件</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">密碼</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="address">地址</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <button type="submit">確認</button>
+        </form>
+    </div>
+    <main></main>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="../css/shoes.css">
+    <link rel="stylesheet" href="../css/contents.css">
+    <style>
+        body {
+            font-family: Georgia;
+            padding: 100px 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cart-container {
+            width: 80%;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 20px;
+        }
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .item-name, .item-price, .item-quantity, .item-total {
+            flex: 1;
+            text-align: center;
+        }
+        .item-quantity input {
+            width: 40px;
+            text-align: center;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 0;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .checkout-button {
+            background-color: #8E99a4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        footer {
+            padding-top: 20px; 
+            font-family: Shadows;
+        }
+    </style>
+</head>
+<header>
+    <div class="menu-container">
+        <ul class="drop-down-menu">
+            <li>
+                <img src="../photo/004.png" class="menu-icon" alt="品牌選單">
+                <ul>
+                    <li><a href="#">各樣品牌</a>
+                        <ul>
+                            <li><a href="adidas.html" target="_self">Adidas</a></li>
+                            <li><a href="nike.html">Nike</a></li>
+                            <li><a href="newbalance.html">New Balance</a></li>
+                            <li><a href="converse.html">Converse</a></li>
+                            <li><a href="puma.html">Puma</a></li>
+                            <li><a href="fila.html">Fila</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="sneaker.html">運動鞋(18)</a></li>
+                    <li><a href="leisure.html">休閒鞋(18)</a></li>
+                    <li><a href="slipper.html">其他(18)</a></li>
+                    <li><a href="recommend.html">店長推薦款</a></li>
+                    <li><a href="login.html">會員登入</a></li>
+                    <li><a href="cart.html">我的購物車</a></li>
+                    <li><a href="contactus.html">聯絡我們</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>         
+    <a href="index.html"><img src="../photo/slogan.png" class="logo" alt="Shoe Store Logo"></a>
+    <nav>
+        <ul>
+            <li class="member-menu">
+                <img src="../photo/002.png" class="img" alt="會員">
+                <ul>
+                    <li><a href="login.html">會員登入</a></li>
+                    <li><a href="register.html">還不是會員？</a></li>
+                </ul>
+            </li>
+            <li><a href="cart.html"><img src="../photo/001.png" class="img" alt="Icon 2"></a></li>
+            <li><a href="contactus.html"><img src="../photo/003.png" class="img" alt="Icon 3"></a></li>
+        </ul>
+    </nav>
+
+    <!-- 新增搜尋欄 -->
+    <div class="search-container">
+        <form action="/search" method="get">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</header>
+<body>
+    <div class="cart-container" style="font-family: 標楷體;">
+        <div class="cart-header">
+            <div class="item-name">產品名稱</div>
+            <div class="item-price">單價</div>
+            <div class="item-quantity">數量</div>
+            <div class="item-total">總價</div>
+        </div>
+
+        <div class="cart-item" style="font-family: Shadows,標楷體;">
+            <a href="adidas01.html"><img src="../adidas/adidasSamba01_1.png" width="100px"></a>
+            <div class="item-name">SAMBA X MESSI 運動休閒鞋</div>
+            <div class="item-price">$3,690</div>
+            <div class="item-quantity"><input type="number" value="1" min="0" onchange="updateTotal(this)"></div>
+            <div class="item-total">$3,690</div>
+        </div>
+        <div class="cart-item" style="font-family: Shadows,標楷體;">
+            <a href="newbalance01.html"><img src="../newbalance/nbSneaker01_1..jpg" width="100px"></a>
+            <div class="item-name">327</div>
+            <div class="item-price">$2,550</div>
+            <div class="item-quantity"><input type="number" value="2" min="0" onchange="updateTotal(this)"></div>
+            <div class="item-total">$5,100</div>
+        </div>
+        <div class="cart-item" style="font-family: Shadows,標楷體;">
+            <a href="converse01.html"><img src="../converse/converseHigh01_1.png" width="100px"></a>
+            <div class="item-name">A Cold Wall x Chunk 70</div>
+            <div class="item-price">$3,390</div>
+            <div class="item-quantity"><input type="number" value="3" min="0" onchange="updateTotal(this)"></div>
+            <div class="item-total">$10,170</div>
+        </div>
+
+        <div class="cart-total">
+            總計: $18,960
+        </div>
+        <div>
+            <button class="checkout-button" onclick="confirmOrder()">結帳</button>
+        </div>
+    </div>
+
+    <script>
+        function updateTotal(element) {
+            const cartItem = element.closest('.cart-item');
+            const price = parseFloat(cartItem.querySelector('.item-price').textContent.replace('$', '').replace(',', ''));
+            const quantity = parseInt(element.value);
+            const total = price * quantity;
+            cartItem.querySelector('.item-total').textContent = `$${total.toLocaleString()}`;
+            updateCartTotal();
+        }
+
+        function updateCartTotal() {
+            let total = 0;
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const itemTotal = parseFloat(item.querySelector('.item-total').textContent.replace('$', '').replace(',', ''));
+                total += itemTotal;
+            });
+            document.querySelector('.cart-total').textContent = `總計: $${total.toLocaleString()}`;
+        }
+
+        function confirmOrder() {
+            window.location.href = "checkout.html";
+        }
+    </script>
+</body>
+</html>

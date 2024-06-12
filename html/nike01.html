@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/shoes.css">
+    <link rel="stylesheet" href="../css/contents.css">
+    <script type="text/javascript" src="../js/Carousel.js"></script>
+    <style>
+        main {
+            padding: 100px 0 0 100px;
+        }
+        .left {
+            float: left;
+            width: 50%;
+        }
+        .right {
+            padding: 80px 0 0 130px;
+            float: right;
+            width: 50%;
+        }
+        ul {
+            list-style-type: circle;
+        }
+        .clearfix{
+            clear: both;
+        }
+        /* Modal styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; 
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Button styles */
+        #cartButton, #sizeChartButton {
+            font-size: 24px;
+            padding: 15px 30px;
+            background-color: #c3b299; /* Morandi color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        #cartButton:hover, #sizeChartButton:hover {
+            background-color: #b3a085; /* Darker Morandi color */
+        }
+        /* Modal button styles */
+        .modal button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #c3b299; /* Morandi color */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .modal button:hover {
+            background-color: #b3a085; /* Darker Morandi color */
+        }
+        /* Review styles */
+        .reviews{
+            padding-top: 80px;
+        }
+        .review {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .review h3 {
+            margin: 0;
+        }
+        .stars {
+            color: gold;
+        }
+        /* Carousel styles */
+        .container {
+            width: 100%;
+            height: calc(80% - 80px); 
+            position: relative;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 0 3px 3px 0;
+            transition: 0.6s ease;
+            user-select: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateY(-50%);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .text {
+            color: #fff;
+            font-size: 16px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 60px; /* 图片预览的高度 */
+            width: 60px; /* 图片预览的宽度 */
+            margin: 0 2px;
+            border-radius: 5px; /* 调整为圆角矩形 */
+            display: inline-block;
+            transition: 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            border: 2px solid #717171; /* 添加边框用于突出显示 */
+        }
+
+        .dot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-container">
+            <ul class="drop-down-menu">
+                <li>
+                    <img src="../photo/004.png" class="menu-icon" alt="品牌選單">
+                    <ul>
+                        <li><a href="#">各樣品牌</a>
+                            <ul>
+                                <li><a href="adidas.html" target="_self">Adidas</a></li>
+                                <li><a href="nike.html">Nike</a></li>
+                                <li><a href="newbalance.html">New Balance</a></li>
+                                <li><a href="converse.html">Converse</a></li>
+                                <li><a href="puma.html">Puma</a></li>
+                                <li><a href="fila.html">Fila</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="sneaker.html">運動鞋(18)</a></li>
+                        <li><a href="leisure.html">休閒鞋(18)</a></li>
+                        <li><a href="slipper.html">其他(18)</a></li>
+                        <li><a href="recommend.html">店長推薦款</a></li>
+                        <li><a href="login.html">會員登入</a></li>
+                        <li><a href="cart.html">我的購物車</a></li>
+                        <li><a href="contactus.html">聯絡我們</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>         
+        <a href="index.html"><img src="../photo/slogan.png" class="logo" alt="Shoe Store Logo"></a>
+        
+        <nav>
+            <ul>
+                <li class="member-menu">
+                    <img src="../photo/002.png" class="img" alt="會員">
+                    <ul>
+                        <li><a href="login.html">會員登入</a></li>
+                        <li><a href="register.html">還不是會員？</a></li>
+                    </ul>
+                </li>
+                <li><a href="cart.html"><img src="../photo/001.png" class="img" alt="Icon 2"></a></li>
+                <li><a href="contactus.html"><img src="../photo/003.png" class="img" alt="Icon 3"></a></li>
+            </ul>
+        </nav>
+    
+</header>
+    <main>
+        <section class="left">
+            <!-- Carousel container -->
+            <div class="container">
+                <div class="slide fade">
+                    <img src="../nike/nikeSneaker01-1.png" alt="Nike01">
+                </div>
+                <div class="slide fade">
+                    <img src="../nike/nikeSneaker01-2.png" alt="Nike02">
+                </div>
+                <div class="slide fade">
+                    <img src="../nike/nikeLeisure01-3.png" alt="Nike03">
+                </div>
+                <div class="slide fade">
+                    <img src="../nike/nikeSneaker01-4.png" alt="Nike04">
+                </div>
+                <div class="slide fade">
+                    <img src="../nike/nikeSneaker01-5.png" alt="Nike05">
+                </div>
+                <div class="slide fade">
+                    <img src="../nike/nikeSneaker01-6.jpg" alt="Nike06">
+                </div>
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+            <div style="text-align: center;">
+                <span class="dot" onclick="showSlides(1)">
+                    <img src="../nike/nikeSneaker01-1.png" alt="Nike01">
+                </span>
+                <span class="dot" onclick="showSlides(2)">
+                    <img src="../nike/nikeSneaker01-2.png" alt="Nike02">
+                </span>
+                <span class="dot" onclick="showSlides(3)">
+                    <img src="../nike/nikeSneaker01-3.png" alt="Nike03">
+                </span>
+                <span class="dot" onclick="showSlides(4)">
+                    <img src="../nike/nikeSneaker01-4.png" alt="Nike04">
+                </span>
+                <span class="dot" onclick="showSlides(5)">
+                    <img src="../nike/nikeSneaker01-5.png" alt="Nike05">
+                </span>
+                <span class="dot" onclick="showSlides(6)">
+                    <img src="../nike/nikeSneaker01-6.jpg" alt="Nike06">
+                </span>
+            </div>
+        </section>
+        <section class="right" style="font-family: Shadows,標楷體;">
+            <h1 style="font-size: 50px;">Giannis Immortality 3 EP</h1><br>
+            <p style="font-size: 35px;">$1,999</p><br>
+            <p style="font-weight: bolder; font-size: 20px;">商品特色:</p><br>
+            <ul style="font-size: 20px;">
+                <li>採用比 Giannis Immortality 2 柔軟的中底泡棉，讓你在進行三線<br>
+                    快攻時，享受更具彈性的足底體驗。</li>
+                <li>合成材質中足束帶，可在側向移動時保持腳步平穩。<br>
+                    鞋面網布輕盈透氣，有助於雙腳保持涼爽。</li>
+                <li>鞋跟採用加大尺寸拉帶，方便快速套入穿鞋。</li>
+            </ul>
+            <br>
+            <button id="cartButton" style="border-radius: 5px; font-family: 標楷體;">加入購物車</button>
+            <button id="sizeChartButton" style="border-radius: 5px; font-family: 標楷體;">尺寸表</button>
+        </section>
+        <div class="clearfix"></div>
+    </main>
+
+    <!-- Reviews Section -->
+    <section class="reviews" style="font-family: Shadows,標楷體; font-size: 20px;">
+        <h2 style="font-weight: bold; padding: 0 0 10px 20px;" >用戶評論 :</h2>
+        <div class="review">
+            <h3>評論者 1</h3>
+            <p class="stars">★★★★</p>
+            <p>整體而言，二代並沒有帶出太大的改變，甚至我認為這改變幅度過小<br>
+                甚至一代可能還有的一些小狀況跟問題仍可能存在<br>
+                不過確實這是一雙平價鞋，若有過多的要求似乎又有一點太苛責<br>
+                因此基本上如果要找雙走路籃球鞋<br>
+                或者是平常只是投籃或者並沒有要跟人家對抗的情形下<br>
+                以這雙的外型設計、基本的動作與過程是沒問題的<br>
+                相反的，天天實戰的朋友們就建議三思而後行了</p>
+        </div>
+        <div class="review">
+            <h3>評論者 2</h3>
+            <p class="stars">★★★★★</p>
+        </div>
+        <div class="review">
+            <h3>評論者 3</h3>
+            <p class="stars">★★★</p>
+        </div>
+    </section>
+    <div id="myModal" class="modal" style="font-family: 標楷體;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>選擇尺寸和數量</h2>
+            <br>
+            <form id="cartForm">
+                <label for="size">尺寸:</label>
+                <select id="size" name="size">
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                </select><br><br>
+                <label for="quantity">數量:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1"><br><br>
+                <button type="submit" style="border-radius: 5px; font-family: 標楷體;">加入購物車</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- The Size Chart Modal -->
+    <div id="sizeChartModal" class="modal">
+        <div class="modal-content">
+            <span class="close sizeChartClose">&times;</span>
+            <h2 style="text-align: center; font-weight: bold; font-family: 標楷體;">尺寸表</h2>
+            <img src="../photo/size.jpeg" width="1300px" style="border-radius: 5px;">
+        </div>
+    </div>
+
+    <script>
+        // Get modal elements
+        var cartModal = document.getElementById("myModal");
+        var sizeChartModal = document.getElementById("sizeChartModal");
+
+        // Get buttons that open the modals
+        var cartBtn = document.getElementById("cartButton");
+        var sizeChartBtn = document.getElementById("sizeChartButton");
+
+        // Get <span> elements that close the modals
+        var cartSpan = document.getElementsByClassName("close")[0];
+        var sizeChartSpan = document.getElementsByClassName("sizeChartClose")[0];
+
+        // When the user clicks the button, open the cart modal
+        cartBtn.onclick = function() {
+            cartModal.style.display = "block";
+        }
+
+        // When the user clicks the button, open the size chart modal
+        sizeChartBtn.onclick = function() {
+            sizeChartModal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the cart modal
+        cartSpan.onclick = function() {
+            cartModal.style.display = "none";
+        }
+
+        // When the user clicks on <span> (x), close the size chart modal
+        sizeChartSpan.onclick = function() {
+            sizeChartModal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == cartModal) {
+                cartModal.style.display = "none";
+            }
+            if (event.target == sizeChartModal) {
+                sizeChartModal.style.display = "none";
+            }
+        }
+
+        // Handle form submission
+        document.getElementById("cartForm").onsubmit = function(event) {
+            event.preventDefault();
+            var size = document.getElementById("size").value;
+            var quantity = document.getElementById("quantity").value;
+            alert("尺寸: " + size + "\n數量: " + quantity);
+            cartModal.style.display = "none";
+        }
+    </script>
+    <footer>
+        <h2 style="padding-top: 20px; font-family: Shadows;">copyright@ 2024 All rights reserved</h2>
+    </footer>
+</body>
+</html>

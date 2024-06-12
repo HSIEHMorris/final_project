@@ -65,27 +65,39 @@
         }
         .login-container input[type="text"],
         .login-container input[type="password"] {
-            width: 350px;
+            width: calc(100% - 22px);
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        .button {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
         .login-container input[type="button"],
+        .login-container input[type="submit"],
         .login-container input[type="reset"] {
             width: 48%;
             padding: 10px;
             border: none;
             border-radius: 4px;
-            margin: 5px 1%;
+            margin: 0;
         }
-        .login-container input[type="button"] {
+        .login-container input[type="submit"] {
             background: #8E99a4;
             color: #fff;
+        }
+        .login-container input[type="submit"]:hover {
+            background: #555;
         }
         .login-container input[type="reset"] {
             background: #8E99a4;
             color: #fff;
+        }
+        .login-container input[type="reset"]:hover {
+            background: #555;
         }
         .login-container .member-options {
             text-align: center;
@@ -103,25 +115,6 @@
         }
         .login-container .additional p {
             margin: 5px 0;
-        }
-        .button{
-            display: flex;
-            justify-content: space-between;
-
-        }
-        .login-container input[type="button"] {
-            background: #8e99a4;
-            color: #fff;
-        }
-        .login-container input[type="button"]:hover {
-            background: #555;
-        }
-        .login-container input[type="reset"] {
-            background: #8e99a4;
-            color: #fff;
-        }
-        .login-container input[type="reset"]:hover {
-            background: #555;
         }
     </style>
 </head>

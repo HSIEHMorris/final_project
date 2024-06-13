@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Login</title>
+    <title>Member Information</title>
     <link rel="stylesheet" href="../css/shoes.css">
     <link rel="stylesheet" href="../css/contents.css">
     <script type="text/javascript" src="../js/Carousel.js"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Georgia;
             background: #f4f4f4;
             margin: 0;
             padding: 0;
@@ -60,20 +60,6 @@
         }
         .menu-container ul li ul li a:hover {
             background: #f4f4f4;
-        }
-        .menu-container ul li ul li ul {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 100%;
-            background: #fff;
-            padding: 0;
-            border-radius: 0 0 8px 8px;
-            min-width: 200px;
-            z-index: 1000;
-        }
-        .menu-container ul li ul li:hover > ul {
-            display: block;
         }
         .menu-icon {
             width: 24px;
@@ -128,71 +114,22 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .login-container {
-            width: 100%;
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
+        .member-info {
+            font-size: 18px;
+            line-height: 1.6;
         }
-        .login-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: calc(100% - 22px);
-            padding: 10px;
+        .member-info p {
             margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
         }
-        .button {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .login-container input[type="button"],
-        .login-container input[type="submit"],
-        .login-container input[type="reset"] {
-            width: 48%;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            margin: 0;
-        }
-        .login-container input[type="submit"] {
+        footer {
             background: #8E99a4;
             color: #fff;
-        }
-        .login-container input[type="submit"]:hover {
-            background: #555;
-        }
-        .login-container input[type="reset"] {
-            background: #8E99a4;
-            color: #fff;
-        }
-        .login-container input[type="reset"]:hover {
-            background: #555;
-        }
-        .login-container .member-options {
             text-align: center;
+            padding: 10px 0;
             margin-top: 20px;
         }
-        .login-container .member-options a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .login-container .member-options a:hover {
-            text-decoration: underline;
-        }
-        .login-container .additional {
-            margin-top: 30px;
-        }
-        .login-container .additional p {
-            margin: 5px 0;
+        main {
+            padding: 80px;
         }
     </style>
 </head>
@@ -213,20 +150,20 @@
                                 <li><a href="fila.html">Fila</a></li>
                             </ul>
                         </li>
-                        <li><a href="sneaker.html">運動鞋(18)</a></li>
-                        <li><a href="leisure.html">休閒鞋(18)</a></li>
-                        <li><a href="slipper.html">其他(18)</a></li>
-                        <li><a href="recommend.html">店長推薦款</a></li>
+                        <li><a href="#">運動鞋(18)</a></li>
+                        <li><a href="#">休閒鞋(18)</a></li>
+                        <li><a href="#">拖鞋(18)</a></li>
+                        <li><a href="#">店長推薦款</a></li>
                         <li><a href="login.html">會員登入</a></li>
                         <li><a href="cart.html">我的購物車</a></li>
                         <li><a href="contactus.html">聯絡我們</a></li>
                     </ul>
                 </li>
             </ul>
-        </div>         
-        
-        
-        
+        </div>
+
+        <a href="index.jsp"><img src="../photo/slogan.png" class="logo" alt="Shoe Store Logo"></a>
+
         <nav>
             <ul>
                 <li class="member-menu">
@@ -250,26 +187,25 @@
             </form>
         </div>
     </header>
-    <div class="login-container">
-        <form action="check.jsp" method="post">
-            <h1 class="login">會員登入</h1>
-            <input type="text" name="id" placeholder="Login" required/>
-            <input type="password" name="pwd" placeholder="Password" required/>
-            <div class="member-options">
-                <a href="#">忘記密碼?</a> | 
-                <a href="register.html">還不是會員</a>
+
+    <main>
+        <div class="container">
+            <h1>會員資料</h1>
+            <div class="member-info">
+                <p><strong>姓名:</strong> 張三</p>
+                <p><strong>會員ID:</strong> user123</p>
+                <p><strong>電子郵件:</strong> user123@example.com</p>
+                <p><strong>聯絡電話:</strong> 0912345678</p>
+                <p><strong>地址:</strong> 台北市信義區松高路1號</p>
+                <p><strong>購物偏好:</strong> 運動鞋, 休閒鞋</p>
+                <p><strong>會員等級:</strong> 白金會員</p>
+                <p><strong>加入日期:</strong> 2022-01-01</p>
             </div>
-            <div class="button">
-                <input type="reset" class="reset" value="重寫"/>
-                <input type="submit" name="b1" value="登入"/>
-            </div>
-            <div class="additional">
-                <p><strong>會員福利:</strong></p>
-                <p>1. 2雙95折, 3雙9折, 4雙以上85折</p>
-                <p>2. 2雙即享免運</p>
-                <p>3. 首次註冊限領500現金券</p>
-            </div>
-        </form>     
-    </div>
+        </div>
+    </main>
+
+    <footer>
+        <h2>copyright@ 2024 All rights reserved</h2>
+    </footer>
 </body>
 </html>

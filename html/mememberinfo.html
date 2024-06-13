@@ -61,6 +61,20 @@
         .menu-container ul li ul li a:hover {
             background: #f4f4f4;
         }
+        .menu-container ul li ul li ul {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: #fff;
+            padding: 0;
+            border-radius: 0 0 8px 8px;
+            min-width: 200px;
+            z-index: 1000;
+        }
+        .menu-container ul li ul li:hover > ul {
+            display: block;
+        }
         .menu-icon {
             width: 24px;
             height: 24px;
@@ -129,7 +143,50 @@
             margin-top: 20px;
         }
         main {
-            padding: 80px;
+            padding: 20px;
+        }
+        .cart-container {
+            font-family: '標楷體';
+            margin-top: 20px;
+        }
+        .cart-header,
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .cart-header {
+            font-weight: bold;
+        }
+        .cart-item img {
+            margin-right: 10px;
+        }
+        .cart-item div,
+        .cart-header div {
+            flex: 1;
+            text-align: center;
+        }
+        .cart-total {
+            text-align: right;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .checkout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #8E99a4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .checkout-button:hover {
+            background: #555;
         }
     </style>
 </head>
@@ -162,7 +219,7 @@
             </ul>
         </div>
 
-        <a href="index.jsp"><img src="../photo/slogan.png" class="logo" alt="Shoe Store Logo"></a>
+        <a href="index.html"><img src="../photo/slogan.png" class="logo" alt="Shoe Store Logo"></a>
 
         <nav>
             <ul>
@@ -202,6 +259,63 @@
                 <p><strong>加入日期:</strong> 2022-01-01</p>
             </div>
         </div>
+        <div class="cart-container">
+            <h2>歷史購買紀錄:</h2>
+            <div class="cart-header">
+                <div>產品圖片</div>
+                <div>產品名稱</div>
+                <div>單價</div>
+                <div>數量</div>
+                <div>總價</div>
+            </div>
+    
+            <div class="cart-item">
+                <a href="puma01.html"><img src="../puma/pumaSneaker01_1.png" width="100px"></a>
+                <div>Softride Sway</div>
+                <div>$1,990</div>
+                <div>1</div>
+                <div>$1,990</div>
+            </div>
+            <div class="cart-item">
+                <a href="nike01.html"><img src="../nike/nikeSneaker01-1.png" width="100px"></a>
+                <div>Giannis Immortality 3 EP</div>
+                <div>$1,999</div>
+                <div>2</div>
+                <div>$3,998</div>
+            </div>
+            <div class="cart-item">
+                <a href="fila01.html"><img src="../fila/filaSneaker01_1.png" width="100px"></a>
+                <div>綁帶運動鞋 1-J303Y-123</div>
+                <div>$1,790</div>
+                <div>2</div>
+                <div>$3,580</div>
+            </div>
+    
+            <div class="cart-total">
+                總計: $9,568
+            </div>
+        </div>
+        <script>
+            function updateTotal(element) {
+                const cartItem = element.closest('.cart-item');
+                const price = parseFloat(cartItem.querySelector('.item-price').textContent.replace('$', '').replace(',', ''));
+                const quantity = parseInt(element.value);
+                const total = price * quantity;
+                cartItem.querySelector('.item-total').textContent = `$${total.toLocaleString()}`;
+                updateCartTotal();
+            }
+    
+            function updateCartTotal() {
+                let total = 0;
+                document.querySelectorAll('.cart-item').forEach(item => {
+                    const itemTotal = parseFloat(item.querySelector('.item-total').textContent.replace('$', '').replace(',', ''));
+                    total += itemTotal;
+                });
+                document.querySelector('.cart-total').textContent = `總計: $${total.toLocaleString()}`;
+            }
+    
+        </script>
+        
     </main>
 
     <footer>

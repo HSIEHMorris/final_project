@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Giannis Immortality 3 EP</title>
     <link rel="stylesheet" href="../css/shoes.css">
     <link rel="stylesheet" href="../css/contents.css">
     <script type="text/javascript" src="../js/Carousel.js"></script>
@@ -296,7 +296,7 @@
     <section class="reviews" style="font-family: Shadows,標楷體; font-size: 20px;">
         <h2 style="font-weight: bold; padding: 0 0 10px 20px;" >用戶評論 :</h2>
         <div class="review">
-            <h3>評論者 1</h3>
+            <h3>魏席恩</h3>
             <p class="stars">★★★★</p>
             <p>整體而言，二代並沒有帶出太大的改變，甚至我認為這改變幅度過小<br>
                 甚至一代可能還有的一些小狀況跟問題仍可能存在<br>
@@ -307,13 +307,44 @@
                 相反的，天天實戰的朋友們就建議三思而後行了</p>
         </div>
         <div class="review">
-            <h3>評論者 2</h3>
+            <h3>車銀優</h3>
             <p class="stars">★★★★★</p>
+            <p>超級喜歡~</p>
         </div>
         <div class="review">
-            <h3>評論者 3</h3>
+            <h3>哈囉</h3>
             <p class="stars">★★★</p>
+            <p>讚</p>
         </div>
+        <div class="review">
+            <h3 id="new-reviewer-name"></h3>
+            <p class="stars" id="new-review-stars"></p>
+            <p id="new-review-content"></p>
+        </div>
+
+        <div id="commentModal" class="modal" style="font-family: 標楷體;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>新增評論</h2>
+                <br>
+                <form id="commentForm">
+                    <label for="reviewerName">您的姓名:</label>
+                    <input type="text" id="reviewerName" name="reviewerName" required><br><br>
+                    <label for="reviewStars">星級:</label>
+                    <select id="reviewStars" name="reviewStars" required>
+                        <option value="1">★</option>
+                        <option value="2">★★</option>
+                        <option value="3">★★★</option>
+                        <option value="4">★★★★</option>
+                        <option value="5">★★★★★</option>
+                    </select><br><br>
+                    <label for="reviewContent">評論內容:</label>
+                    <textarea id="reviewContent" name="reviewContent" rows="4" cols="50" required></textarea><br><br>
+                    <button type="submit" style="border-radius: 5px; font-family: 標楷體;">提交評論</button>
+                </form>
+            </div>
+        </div>
+
     </section>
     <div id="myModal" class="modal" style="font-family: 標楷體;">
         <div class="modal-content">
@@ -336,49 +367,48 @@
         </div>
     </div>
 
-    <!-- The Size Chart Modal -->
+    
     <div id="sizeChartModal" class="modal">
         <div class="modal-content">
             <span class="close sizeChartClose">&times;</span>
             <h2 style="text-align: center; font-weight: bold; font-family: 標楷體;">尺寸表</h2>
-            <img src="../photo/size.jpeg" width="1300px" style="border-radius: 5px;">
+            <img src="../photo/size.jpeg" width="730px" style="border-radius: 5px;">
         </div>
     </div>
 
+    
+    <button id="addCommentButton" style="font-size: 24px; padding: 15px 30px; background-color: #c3b299; color: white; border: none; cursor: pointer; border-radius: 5px; font-family: 標楷體; margin: 20px;">新增評論</button>
+
     <script>
-        // Get modal elements
+        
         var cartModal = document.getElementById("myModal");
         var sizeChartModal = document.getElementById("sizeChartModal");
+        var commentModal = document.getElementById("commentModal");
 
-        // Get buttons that open the modals
+       
         var cartBtn = document.getElementById("cartButton");
         var sizeChartBtn = document.getElementById("sizeChartButton");
-
-        // Get <span> elements that close the modals
-        var cartSpan = document.getElementsByClassName("close")[0];
-        var sizeChartSpan = document.getElementsByClassName("sizeChartClose")[0];
-
-        // When the user clicks the button, open the cart modal
+        var addCommentBtn = document.getElementById("addCommentButton");
+        var closeButtons = document.querySelectorAll('.close');
         cartBtn.onclick = function() {
             cartModal.style.display = "block";
         }
 
-        // When the user clicks the button, open the size chart modal
+        
         sizeChartBtn.onclick = function() {
             sizeChartModal.style.display = "block";
         }
 
-        // When the user clicks on <span> (x), close the cart modal
-        cartSpan.onclick = function() {
-            cartModal.style.display = "none";
+        
+        addCommentBtn.onclick = function() {
+            commentModal.style.display = "block";
         }
-
-        // When the user clicks on <span> (x), close the size chart modal
-        sizeChartSpan.onclick = function() {
-            sizeChartModal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
+        closeButtons.forEach(function(button) {
+            button.onclick = function() {
+                button.closest('.modal').style.display = "none";
+            }
+        });
+        
         window.onclick = function(event) {
             if (event.target == cartModal) {
                 cartModal.style.display = "none";
@@ -386,15 +416,36 @@
             if (event.target == sizeChartModal) {
                 sizeChartModal.style.display = "none";
             }
+            if (event.target == commentModal) {
+                commentModal.style.display = "none";
+            }
         }
 
-        // Handle form submission
+        
         document.getElementById("cartForm").onsubmit = function(event) {
             event.preventDefault();
             var size = document.getElementById("size").value;
             var quantity = document.getElementById("quantity").value;
             alert("尺寸: " + size + "\n數量: " + quantity);
             cartModal.style.display = "none";
+        }
+
+        
+        document.getElementById("commentForm").onsubmit = function(event) {
+            event.preventDefault();
+            var reviewerName = document.getElementById("reviewerName").value;
+            var reviewStars = document.getElementById("reviewStars").value;
+            var reviewContent = document.getElementById("reviewContent").value;
+            var reviewSection = document.querySelector('.reviews');
+            var newReview = document.createElement('div');
+            newReview.className = 'review';
+            newReview.innerHTML = `
+                <h3>${reviewerName}</h3>
+                <p class="stars">${'★'.repeat(reviewStars)}</p>
+                <p>${reviewContent}</p>
+            `;
+            reviewSection.appendChild(newReview);
+            commentModal.style.display = "none";
         }
     </script>
     <footer>

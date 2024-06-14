@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SAMBA X MESSI 運動休閒鞋</title>
     <link rel="stylesheet" href="../css/shoes.css">
     <link rel="stylesheet" href="../css/contents.css">
     <script type="text/javascript" src="../js/Carousel.js"></script>
@@ -298,17 +298,17 @@
     <section class="reviews" style="font-family: 標楷體; font-size: 20px;">
         <h2 style="font-weight: bold; padding: 0 0 10px 20px;">用戶評論 :</h2>
         <div class="review">
-            <h3>評論者 1</h3>
+            <h3>阿貓</h3>
             <p class="stars">★★★★★</p>
-            <p>這雙鞋顏色超級好看，有心動的感覺!</p>
+            <p>這雙鞋顏色超超超超級好看，有心動的感覺!</p>
         </div>
         <div class="review">
-            <h3>評論者 2</h3>
+            <h3>阿狗</h3>
             <p class="stars">★★★★</p>
-            <p>很好穿，在外面走一整天也不會累</p>
+            <p>很好穿，在外面走一整天也不會累，真的太酷了拉</p>
         </div>
         <div class="review">
-            <h3>評論者 3</h3>
+            <h3>寶弟</h3>
             <p class="stars">★★★★★</p>
             <p>我是梅西的粉絲，所以我一定要擁有這雙鞋!</p>
         </div>
@@ -328,7 +328,7 @@
             <form id="commentForm">
                 <label for="reviewerName">您的姓名:</label>
                 <input type="text" id="reviewerName" name="reviewerName" required><br><br>
-                <label for="reviewStars">星級:</label>
+                <label for="reviewStars">星級:  </label>
                 <select id="reviewStars" name="reviewStars" required>
                     <option value="1">★</option>
                     <option value="2">★★</option>
@@ -367,7 +367,7 @@
     
     <div id="sizeChartModal" class="modal">
         <div class="modal-content">
-            <span class="close sizeChartClose">&times;</span>
+            <span class="close">&times;</span>
             <h2 style="text-align: center; font-weight: bold; font-family: 標楷體;">尺寸表</h2>
             <img src="../photo/size.jpeg" width="730px" style="border-radius: 5px;">
         </div>
@@ -377,52 +377,38 @@
     <button id="addCommentButton" style="font-size: 24px; padding: 15px 30px; background-color: #c3b299; color: white; border: none; cursor: pointer; border-radius: 5px; font-family: 標楷體; margin: 20px;">新增評論</button>
 
     <script>
-        
+        // Get modals
         var cartModal = document.getElementById("myModal");
         var sizeChartModal = document.getElementById("sizeChartModal");
         var commentModal = document.getElementById("commentModal");
 
-       
+        // Get buttons
         var cartBtn = document.getElementById("cartButton");
         var sizeChartBtn = document.getElementById("sizeChartButton");
         var addCommentBtn = document.getElementById("addCommentButton");
 
-        
-        var cartSpan = document.getElementsByClassName("close")[0];
-        var sizeChartSpan = document.getElementsByClassName("sizeChartClose")[0];
-        var commentSpan = document.getElementsByClassName("close")[1];
+        // Get the <span> elements that close the modals
+        var closeButtons = document.querySelectorAll('.close');
 
-        
+        // When the user clicks on the button, open the modal
         cartBtn.onclick = function() {
             cartModal.style.display = "block";
         }
-
-        
         sizeChartBtn.onclick = function() {
             sizeChartModal.style.display = "block";
         }
-
-        
         addCommentBtn.onclick = function() {
             commentModal.style.display = "block";
         }
 
-        
-        cartSpan.onclick = function() {
-            cartModal.style.display = "none";
-        }
+        // When the user clicks on <span> (x), close the modal
+        closeButtons.forEach(function(button) {
+            button.onclick = function() {
+                button.closest('.modal').style.display = "none";
+            }
+        });
 
-        
-        sizeChartSpan.onclick = function() {
-            sizeChartModal.style.display = "none";
-        }
-
-        
-        commentSpan.onclick = function() {
-            commentModal.style.display = "none";
-        }
-
-        
+        // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
             if (event.target == cartModal) {
                 cartModal.style.display = "none";
@@ -435,7 +421,7 @@
             }
         }
 
-        
+        // Handle cart form submission
         document.getElementById("cartForm").onsubmit = function(event) {
             event.preventDefault();
             var size = document.getElementById("size").value;
@@ -444,7 +430,7 @@
             cartModal.style.display = "none";
         }
 
-        
+        // Handle comment form submission
         document.getElementById("commentForm").onsubmit = function(event) {
             event.preventDefault();
             var reviewerName = document.getElementById("reviewerName").value;
@@ -467,3 +453,4 @@
     </footer>
 </body>
 </html>
+
